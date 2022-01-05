@@ -23,4 +23,3 @@ def get_Mem():
     swap = get_Swap()
 
     return svmem, swap
-

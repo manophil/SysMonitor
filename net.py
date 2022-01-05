@@ -1,56 +1,12 @@
-try:
-    import time
-except ImportError:
-    print("Cannot import time module - this is needed for this application.")
-    print("Exiting...")
-    sys.exit()
+import time
+import psutil
+import re
 
-try:
-    import psutil
-except ImportError:
-    print("Cannot import psutil module - this is needed for this application.")
-    print("Exiting...")
-    sys.exit()
-
-try:
-    import re  # Needed for regex
-except ImportError:
-    print("Cannot import re module - this is needed for this application.")
-    print("Exiting...")
-    sys.exit()
+from functions import bytes2human
+from functions import commify3
 
 
 def get_Net():
-    def bytes2human(n):
-        """
-        >>> bytes2human(10000)
-        '9.8 K'
-        >>> bytes2human(100001221)
-        '95.4 M'
-        """
-        symbols = ("K", "M", "G", "T", "P", "E", "Z", "Y")
-        prefix = {}
-        for i, s in enumerate(symbols):
-            prefix[s] = 1 << (i + 1) * 10
-        for s in reversed(symbols):
-            if n >= prefix[s]:
-                value = float(n) / prefix[s]
-                return "%.2f %s" % (value, s)
-        return "%.2f B" % (n)
-
-    # end def
-
-    #
-    # Routine to add commas to a float string
-    #
-    def commify3(amount):
-        amount = str(amount)
-        amount = amount[::-1]
-        amount = re.sub(r"(\d\d\d)(?=\d)(?!\d*\.)", r"\1,", amount)
-        return amount[::-1]
-
-    # end def commify3(amount):
-
     # ===================
     # Main Python section
     # ===================

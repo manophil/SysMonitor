@@ -105,5 +105,4 @@ def get_Hdd():
     sdb2 = get_sdb2(partitions)
     sda1 = get_sda(partitions)
 
-
     return sdb1, sdb2, sda1
