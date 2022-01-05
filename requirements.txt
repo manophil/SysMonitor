@@ -1,0 +1,4 @@
+tabulate
+psutil
+platform
+cpuinfo
